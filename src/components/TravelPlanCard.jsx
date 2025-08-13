@@ -1,4 +1,8 @@
-function TravelPlanCard({ plan: { image, destination, days, description, totalCost, allInclusive }, index, onDelete, onAddFav }) {
+// import { useState } from "react";
+
+function TravelPlanCard({ plan: { image, destination, days, description, totalCost, allInclusive }, index, onDelete, onAddFav, favBgColorIndex }) {
+  const colors = ["purple", "blue", "green", "yellow", "orange", "red"];
+
   return (
     <div className="travel-item">
       <img src={image} alt="Travel image" className="travel-image"/>
@@ -13,7 +17,7 @@ function TravelPlanCard({ plan: { image, destination, days, description, totalCo
         </div>
         <div className="buttons-container">
           <button className="delete-travel-btn" onClick={() => onDelete(index)}>Delete</button>
-          <button className="fav-plan-btn" onClick={() => onAddFav({image, destination, days, totalCost}, index)}>♡</button>
+          <button className="fav-plan-btn" style={{ backgroundColor: colors[favBgColorIndex] }} onClick={() => onAddFav({ image, destination, days, totalCost }, index)}>♡</button>
         </div>
       </div>
     </div>
